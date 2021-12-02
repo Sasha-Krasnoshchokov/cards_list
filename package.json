@@ -1,8 +1,11 @@
 {
   "name": "cards_list",
+  "homepage": "https://Sasha-Krasnoshchokov.github.io/cards_list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -10,17 +13,22 @@
     "@types/node": "^12.20.37",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-scripts": "4.0.3",
     "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache"
   },
   "eslintConfig": {
     "extends": [
