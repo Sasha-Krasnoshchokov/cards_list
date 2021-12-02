@@ -1,0 +1,2 @@
+(this.webpackJsonpcards_list=this.webpackJsonpcards_list||[]).push([[0],{11:function(e,t,s){"use strict";s.r(t);var c=s(1),n=s.n(c),r=s(3),a=s.n(r),i=(s(8),s(9),s(0));var d=function(){return Object(i.jsx)("div",{className:"App",children:Object(i.jsx)("header",{className:"App-header",children:"Cards List"})})};a.a.render(Object(i.jsx)(n.a.StrictMode,{children:Object(i.jsx)(d,{})}),document.getElementById("root"))},8:function(e,t,s){},9:function(e,t,s){}},[[11,1,2]]]);
+//# sourceMappingURL=main.3f7ec37a.chunk.js.map
