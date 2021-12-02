@@ -1,7 +1,7 @@
 # Build Single Page Application
 
- - [DEMO]()
- - [SAMPLE](link.https://www.figma.com/file/h1veXmuEt84sT7PEZgF42K/Frontend_test?node-id=0%3A1)
+ ### [DEMO](https://sasha-krasnoshchokov.github.io/cards_list/)
+ ### [Figma design](link.https://www.figma.com/file/h1veXmuEt84sT7PEZgF42K/Frontend_test?node-id=0%3A1)
 
 ## Use the following technologies
  - React, TypeScript
