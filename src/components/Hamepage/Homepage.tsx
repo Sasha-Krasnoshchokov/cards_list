@@ -3,15 +3,16 @@ import { useStyles } from '../../styles/styles';
 
 import './Homepage.scss';
 
-const amount: number | null = 6;
+import { usePrepareState } from '../../controllers/controller';
 
 export const Homepage = () => {
   const classes = useStyles();
+  const amount: number | null = usePrepareState().news.length;
 
   return (
     <div className="homepage">
-      <Searching />
 
+      <Searching />
       <p className={classes.resultOfSearch}>Result: {amount}</p>
 
     </div>

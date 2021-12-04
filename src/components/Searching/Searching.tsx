@@ -5,7 +5,7 @@ import { Icons } from '../Icons/Icons';
 import { Inputs } from '../Inputs/Inputs';
 import { inputStyle, useStyles } from '../../styles/styles';
 
-import searchIcon from '../../image/icon/search.svg';
+import searchIcon from '../../images/icons/search.svg';
 
 export default function Searching() {
   const classes = useStyles();

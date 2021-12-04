@@ -53,7 +53,7 @@ export const useStyles = makeStyles(() => ({
     color:'#363636',
   },
   resultOfSearch: {
-    margin: '0',
+    margin: '0 0 45px',
     padding: '0 0 5px',
     textAlign: 'left',
     fontFamily: 'Montserrat',
