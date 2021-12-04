@@ -12,7 +12,7 @@ export const useGetDataFromServer = () => {
     getDataFromServer().then(promise => {
       dispatch(actions.getFromServer(promise));
     });
-  }, []);
+  }, [dispatch]);
 
 };
 
