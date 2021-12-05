@@ -76,7 +76,7 @@ export const useGallerySyle = makeStyles (() => ({
     justifyContent: 'center',
   },
   cardWrap: {
-    flexGrow: 1,
+    // flexGrow: 1,
     height: 530,
     width: 400,
     '@media (max-width: 1015px)': {

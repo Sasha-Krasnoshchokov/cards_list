@@ -17,7 +17,7 @@ export function reducer(state: State = initialState, actions: Action): State {
       };
 
     case DATA_SELECTION:
-      console.log('get request from user: ', actions.value)
+      // console.log('get request from user: ', actions.value.split(' '))
       return {
         ...state,
         searchData: actions.value,

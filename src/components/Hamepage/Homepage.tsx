@@ -4,11 +4,11 @@ import { useSearchStyles } from '../../styles/styles';
 import './Homepage.scss';
 
 import { Gallery } from '../Gallery/Gallery';
-import { usePrepareState } from '../../controllers/controller';
+import { usePrepareState, usePreparedArrayToDisplay } from '../../controllers/controller';
 
 export const Homepage = () => {
   const classes = useSearchStyles();
-  const amount: number | null = usePrepareState().news.length;
+  const amount: number | null = usePreparedArrayToDisplay(usePrepareState()).length;
 
   return (
     <div className="homepage">

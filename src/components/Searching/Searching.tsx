@@ -4,12 +4,18 @@ import Paper from '@material-ui/core/Paper';
 import { Icons } from '../Icons/Icons';
 import { Inputs } from '../Inputs/Inputs';
 import { inputStyle, useSearchStyles } from '../../styles/styles';
+import { useGetInfoFromUser } from '../../controllers/controller';
+import { State } from '../../types/types';
 
 import searchIcon from '../../images/icons/search.svg';
+import { useSelector } from 'react-redux';
 
 export const Searching = () => {
   const classes = useSearchStyles();
+  const state = useSelector((state: State) => state);
+
   const [userInputs, setUserInputs] = useState('');
+  useGetInfoFromUser(userInputs);
 
   return (
     <section className={classes.searchSection}>
@@ -28,7 +34,7 @@ export const Searching = () => {
         <div style={{width: '100%'}}>
           <Inputs
             id='search'
-            value={userInputs}
+            value={state.searchData}
             setUserInputs={setUserInputs}
             styles={inputStyle}
           />

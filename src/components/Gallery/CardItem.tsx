@@ -1,6 +1,7 @@
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import { Markup } from 'interweave';
 
 import { useCardSyle } from '../../styles/styles';
 import { INews } from '../../types/types';
@@ -39,7 +40,7 @@ export const CardItem = (props: Props) => {
         </div>
 
         <p className={classes.cardTitle}>
-          {props.news.title}
+          <Markup content={props.news.title} />
         </p>
 
         <p className={classes.cardDescription}>

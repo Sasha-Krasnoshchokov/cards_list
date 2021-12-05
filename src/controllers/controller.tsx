@@ -1,13 +1,64 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { State } from '../types/types';
+import { State, INews } from '../types/types';
 import { actions } from '../store/actions';
 import { getDataFromServer } from '../controllers/api';
 import { useEffect } from 'react';
 
-export const useGetInfoFromUser = (str: string): void => {
+export const usePreparedArrayToDisplay = (state: State): INews[] => {
+  const array = state.news.map((item: INews) => ({...item}));
+  let count = 0;
+  let regex = '';
+  let newSubstr = '';
+  let text = '';
+  let ind = -1;
+
+  if (state.searchData.length === 0) {
+    return state.news;
+  }
+
+  return (
+    array.filter((obj: INews) => {
+      count = 0;
+      ind = -1;
+      text = obj.title;
+
+      state.searchData.toLowerCase().split(' ')
+        .forEach((str: string) => {
+          if (str !== '') {
+            ind = text.toLowerCase().indexOf(str);
+
+            if (ind >= 0) {
+              count++;
+
+              regex = text.slice(ind, (ind + str.length));
+              newSubstr = `<mark>${regex}</mark>`;
+              obj.title = text.replace(regex, newSubstr);
+
+              regex = '</mark> <mark>';
+              newSubstr = ' ';
+              obj.title = obj.title.replace(regex, newSubstr);
+            }
+          }
+        })
+
+      if (count > 0) {
+        return obj;
+      }
+
+      return '';
+    })
+  );
+};
+
+export const useGetInfoFromUser = (value: string): void => {  
   const dispatch = useDispatch();
-  dispatch(actions.dataSelection(str));
+
+  useEffect(() => {
+    if (value !== ' ') {
+      dispatch(actions.dataSelection(value));
+    }
+  }, [value, dispatch]);
 };
 
 export const useDateForCard = (date: Date): string => {
