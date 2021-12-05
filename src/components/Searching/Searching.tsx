@@ -3,20 +3,20 @@ import Paper from '@material-ui/core/Paper';
 
 import { Icons } from '../Icons/Icons';
 import { Inputs } from '../Inputs/Inputs';
-import { inputStyle, useStyles } from '../../styles/styles';
+import { inputStyle, useSearchStyles } from '../../styles/styles';
 
 import searchIcon from '../../images/icons/search.svg';
 
-export default function Searching() {
-  const classes = useStyles();
+export const Searching = () => {
+  const classes = useSearchStyles();
   const [userInputs, setUserInputs] = useState('');
 
   return (
-    <section className={classes.searchingSection}>
+    <section className={classes.searchSection}>
 
       <h2 className={classes.searchTitle}>Filter by keywords</h2>
 
-      <Paper component="form" className={classes.paper}>
+      <Paper component="form" className={classes.searchPaper}>
 
         <div style={{ marginRight: '20px' }}>
           <Icons

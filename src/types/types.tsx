@@ -38,7 +38,7 @@ export type ActionGetFromServer = {
 
 export type Action = {
   type: string,
-  value?: string | number,
+  value: string,
   array?: INews[],
 };
 
