@@ -1,22 +1,25 @@
+import { useSelector } from 'react-redux';
+
 import { Searching } from '../Searching/Searching';
 import { useSearchStyles } from '../../styles/styles';
+import { State, INews } from '../../types/types';
 
 import './Homepage.scss';
 
 import { Gallery } from '../Gallery/Gallery';
-import { usePrepareState, usePreparedArrayToDisplay } from '../../controllers/controller';
+import { usePreparedTitlesToDisplay } from '../../controllers/controller';
 
 export const Homepage = () => {
   const classes = useSearchStyles();
-  const amount: number | null = usePreparedArrayToDisplay(usePrepareState()).length;
+  const dataToDisplay: INews[] = usePreparedTitlesToDisplay(useSelector((state: State) => state));
 
   return (
     <div className="homepage">
 
       <Searching />
-      <p className={classes.resultOfSearch}>Result: {amount}</p>
+      <p className={classes.resultOfSearch}>Result: {dataToDisplay.length}</p>
 
-      <Gallery />
+      <Gallery dataToDisplay={dataToDisplay} />
 
     </div>
   );

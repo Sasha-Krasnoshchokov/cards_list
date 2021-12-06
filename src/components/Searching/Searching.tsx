@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import { Icons } from '../Icons/Icons';
 import { Inputs } from '../Inputs/Inputs';
 import { inputStyle, useSearchStyles } from '../../styles/styles';
-import { useGetInfoFromUser } from '../../controllers/controller';
+import { useGetSearchWordsFromUser } from '../../controllers/controller';
 import { State } from '../../types/types';
 
 import searchIcon from '../../images/icons/search.svg';
@@ -15,7 +15,7 @@ export const Searching = () => {
   const state = useSelector((state: State) => state);
 
   const [userInputs, setUserInputs] = useState('');
-  useGetInfoFromUser(userInputs);
+  useGetSearchWordsFromUser(userInputs);
 
   return (
     <section className={classes.searchSection}>

@@ -9,7 +9,7 @@ import { Icons } from '../Icons/Icons';
 import calendarIcon from '../../images/icons/calendar.svg';
 import arrowRight from '../../images/icons/arrowRight.svg';
 
-import { useDateForCard, useDescriptionForCard } from '../../controllers/controller';
+import { useConvertDate, useTrimDescription } from '../../controllers/controller';
 
 type Props = {
   news: INews,
@@ -35,7 +35,7 @@ export const CardItem = (props: Props) => {
             heightValue={16}
           />
           <span className={classes.cardPublishedAt}>
-            {useDateForCard(new Date(props.news.publishedAt))}
+            {useConvertDate(new Date(props.news.publishedAt))}
           </span>
         </div>
 
@@ -44,7 +44,7 @@ export const CardItem = (props: Props) => {
         </p>
 
         <p className={classes.cardDescription}>
-          {useDescriptionForCard(props.news.summary)}
+          <Markup content={useTrimDescription(props.news.summary)} />
         </p>
 
         <section className={classes.cardRaedMore}>
