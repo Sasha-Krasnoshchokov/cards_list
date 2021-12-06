@@ -4,7 +4,7 @@ type Props = {
   heightValue?: number,
 };
 
-export const Icons = (props: Props): JSX.Element => {
+export const Icon = (props: Props): JSX.Element => {
 
   return (
     <div

@@ -1,23 +1,32 @@
 import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
 
-import { useGallerySyle } from '../../styles/styles';
+import { useGalleryStyle } from '../../styles/styles';
 import { CardItem } from './CardItem';
 import { INews } from '../../types/types';
 
 type Props = {
-  dataToDisplay: INews[],
+  newsToDisplay: INews[],
 };
 
-export const Gallery = ( props: Props) => {
-  const classes = useGallerySyle();
+export const Gallery = ( props: Props ) => {
+  const classes = useGalleryStyle();
 
   return (
     <Grid container className={classes.gallerySection}>
-      {props.dataToDisplay.map((item: INews) => (
-        <div className={classes.cardWrap} key={item.id}>
+
+      {props.newsToDisplay.map((item: INews) => (
+        <Link
+          state={ item }
+          className={classes.cardWrap}
+          key={item.id}
+          id={`${item.id}`}
+          to='/article'
+        >
           <CardItem news={item} />
-        </div>
+        </Link>
       ))}
+
     </Grid>
   );
 }

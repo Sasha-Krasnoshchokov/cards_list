@@ -1,11 +1,13 @@
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import { Markup } from 'interweave';
 
 import { useCardSyle } from '../../styles/styles';
 import { INews } from '../../types/types';
-import { Icons } from '../Icons/Icons';
+import { Icon } from '../Icon/Icon';
 import calendarIcon from '../../images/icons/calendar.svg';
 import arrowRight from '../../images/icons/arrowRight.svg';
 
@@ -27,34 +29,38 @@ export const CardItem = (props: Props) => {
         title={props.news.title}
       />
 
-      <CardContent style={{ padding: '25px' }} className={classes.cardContent} component="section">
+      <CardContent style={{ padding: '24px' }} className={classes.cardContent} component="section">
 
-        <div className={classes.cardPublished}>
-          <Icons
+        <Paper component='div' className={classes.cardPublished}>
+          <Icon
             url={calendarIcon}
             heightValue={16}
           />
-          <span className={classes.cardPublishedAt}>
+
+          <Paper component='span' className={classes.cardPublishedAt}>
             {useConvertDate(new Date(props.news.publishedAt))}
-          </span>
-        </div>
+          </Paper>
+        </Paper>
 
-        <p className={classes.cardTitle}>
+        <Typography variant="body1" className={classes.cardTitle}>
           <Markup content={props.news.title} />
-        </p>
+        </Typography>
 
-        <p className={classes.cardDescription}>
+        <Typography variant="body1" className={classes.cardDescription}>
           <Markup content={useTrimDescription(props.news.summary)} />
-        </p>
+        </Typography>
 
-        <section className={classes.cardRaedMore}>
-          <p className={classes.cardRaedMoreText}>Read more</p>
-          <Icons
+        <Paper component='div' className={classes.cardRaedMore}>
+          <Typography variant="body1" className={classes.cardRaedMoreText}>
+            Read more
+          </Typography>
+          
+          <Icon
             url={arrowRight}
             widthValue={12}
             heightValue={10}
           />
-        </section>
+        </Paper>
 
       </CardContent>
     </Card>

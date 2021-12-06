@@ -1,26 +1,31 @@
 import { useSelector } from 'react-redux';
 
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
 import { Searching } from '../Searching/Searching';
-import { useSearchStyles } from '../../styles/styles';
+import { useHomePage } from '../../styles/styles';
 import { State, INews } from '../../types/types';
 
-import './Homepage.scss';
-
 import { Gallery } from '../Gallery/Gallery';
-import { usePreparedTitlesToDisplay } from '../../controllers/controller';
+import { preparedTitlesToDisplay } from '../../controllers/controller';
 
 export const Homepage = () => {
-  const classes = useSearchStyles();
-  const dataToDisplay: INews[] = usePreparedTitlesToDisplay(useSelector((state: State) => state));
+  const classes = useHomePage();
+  const newsToDisplay: INews[] = preparedTitlesToDisplay(useSelector((state: State) => state));
 
   return (
-    <div className="homepage">
-
+    <Paper component='div' className={classes.homePage}>
       <Searching />
-      <p className={classes.resultOfSearch}>Result: {dataToDisplay.length}</p>
 
-      <Gallery dataToDisplay={dataToDisplay} />
+      <Typography
+        variant="body1"
+        className={classes.resultOfSearch}
+      >
+        Result: {newsToDisplay.length}
+      </Typography>
 
-    </div>
+      <Gallery newsToDisplay={newsToDisplay} />
+    </Paper>
   );
 };

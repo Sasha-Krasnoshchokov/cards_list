@@ -1,11 +1,10 @@
 import { Action, INews } from '../types/types';
 
-export const GET_DATA_FROM_SERVER = 'GET_DATA_FROM_SERVER';
-export const DATA_SELECTION = 'DATA_SELECTION';
+export const SAVE_TO_STATE = 'SAVE_TO_STATE';
+export const SAVE_SEARCH_WORDS_TO_STATE = 'SAVE_SEARCH_WORDS_TO_STATE';
 export const ITEM_TO_DISPLAY = 'ITEM_TO_DISPLAY';
 
 export const actions = {
-  getFromServer: (array: INews[]) => ({ type: GET_DATA_FROM_SERVER, array }),
-  dataSelection: (value: string): Action => ({ type: DATA_SELECTION, value }),
-  itemToDisplay: (value: string): Action => ({ type: ITEM_TO_DISPLAY, value }),
+  saveToStateFromServer: (value: INews[]): Action => ({ type: SAVE_TO_STATE, value }),
+  saveSearchWordsToState: (value: string): Action => ({ type: SAVE_SEARCH_WORDS_TO_STATE, value}),
 };

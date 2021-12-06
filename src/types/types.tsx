@@ -27,19 +27,11 @@ export type State = {
   searchData: string,
 };
 
-export type Reducer = (state: State, actions: Action) => State;
-
-export type DispatchType = (args: Action) => Action;
-
-export type ActionGetFromServer = {
-  type: string,
-  value: INews[],
-};
-
 export type Action = {
   type: string,
-  value: string,
-  array?: INews[],
+  value: string | INews[],
 };
 
+export type Reducer = (state: State, actions: Action) => State;
+export type DispatchType = (args: Action) => Action;
 export type Function = () => {};

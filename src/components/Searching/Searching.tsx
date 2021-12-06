@@ -1,47 +1,50 @@
 import { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
-import { Icons } from '../Icons/Icons';
-import { Inputs } from '../Inputs/Inputs';
+import { Icon } from '../Icon/Icon';
 import { inputStyle, useSearchStyles } from '../../styles/styles';
-import { useGetSearchWordsFromUser } from '../../controllers/controller';
+import { useSaveSearchWordsToState } from '../../controllers/controller';
 import { State } from '../../types/types';
 
 import searchIcon from '../../images/icons/search.svg';
 import { useSelector } from 'react-redux';
 
 export const Searching = () => {
-  const classes = useSearchStyles();
-  const state = useSelector((state: State) => state);
+  const [userInputs, setUserInputs] = useState(
+    useSelector((state: State) => state).searchData
+  );
+  useSaveSearchWordsToState(userInputs);
 
-  const [userInputs, setUserInputs] = useState('');
-  useGetSearchWordsFromUser(userInputs);
+  const classes = useSearchStyles();
 
   return (
-    <section className={classes.searchSection}>
+    <Paper component="section" className={classes.searchSection}>
 
-      <h2 className={classes.searchTitle}>Filter by keywords</h2>
+        <Typography variant="h2" className={classes.searchTitle}>
+          Filter by keywords
+        </Typography>
 
-      <Paper component="form" className={classes.searchPaper}>
-
-        <div style={{ marginRight: '20px' }}>
-          <Icons
+      <Paper component="form" className={classes.searchForm}>
+        <Paper component="div" className={classes.searchIcon}>
+          <Icon
             url={searchIcon}
             heightValue={20}
           />
-        </div>
+        </Paper>
 
-        <div style={{width: '100%'}}>
-          <Inputs
+        <Paper component="div" className={classes.searchInput}>
+          <input
+            onChange={(event) => setUserInputs(event.target.value)}
+            style={inputStyle}
+            value={userInputs}
             id='search'
-            value={state.searchData}
-            setUserInputs={setUserInputs}
-            styles={inputStyle}
+            placeholder="what do you want to know"
           />
-        </div>
+        </Paper>
 
       </Paper>
 
-    </section>
+    </Paper>
   );
 }

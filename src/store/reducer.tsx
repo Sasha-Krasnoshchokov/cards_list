@@ -1,26 +1,25 @@
-import {
-  GET_DATA_FROM_SERVER, DATA_SELECTION,
-} from './actions';
+import { SAVE_TO_STATE, SAVE_SEARCH_WORDS_TO_STATE } from './actions';
 
 import { State, Action } from '../types/types';
 import { state as initialState } from './initials';
 
-export function reducer(state: State = initialState, actions: Action): State {
-// console.log('reducer: ', actions)
+export function reducer(state: State = initialState, action: Action): State {
 
-  switch (actions.type) {
-    case GET_DATA_FROM_SERVER:
-      // console.log('get from server: ', actions.array)
+  switch (action.type) {
+    case SAVE_TO_STATE:
       return {
         ...state,
-        news: actions.array ? actions.array.map(item => ({...item})) : [],
+        news: (
+          typeof action.value === 'object'
+            ? action.value.map(item => ({...item}))
+            : []
+        ),
       };
 
-    case DATA_SELECTION:
-      // console.log('get request from user: ', actions.value.split(' '))
+    case SAVE_SEARCH_WORDS_TO_STATE:
       return {
         ...state,
-        searchData: actions.value,
+        searchData: (typeof action.value === 'string') ? action.value : '',
       };
 
     default:

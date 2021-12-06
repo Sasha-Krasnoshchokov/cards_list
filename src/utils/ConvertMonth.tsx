@@ -1,4 +1,4 @@
-export const consertMonthToString = (month: number): string => {
+export const convertMonthToString = (month: number): string => {
 
   switch (month) {
     case 1:

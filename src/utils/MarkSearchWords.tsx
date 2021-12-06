@@ -60,5 +60,6 @@ const markInString = (text: string, str: string): string => {
 
     return result;
   }
+
   return '';
 };
